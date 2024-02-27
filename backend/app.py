@@ -132,6 +132,50 @@ def get_movie(id):
             if film["id"] == int(id):
                 return film, filmovi_dict
 
+def load_users():
+    with open("users.json", "r") as file:
+        return json.load(file)
+
+def save_users(users):
+    with open("users.json", "w") as file:
+        json.dump(users, file)
+
+@app.route("/register", methods=["POST"])
+def register():
+    users = load_users()
+    data = request.get_json()
+
+    username = data.get("username")
+    password = data.get("password")
+
+    if not username or not password:
+        abort(400, "Username and password are required.")
+
+    if any(user["username"] == username for user in users["users"]):
+        abort(400, "Username already exists.")
+
+    users["users"].append({"username": username, "password": password})
+    save_users(users)
+
+    return jsonify({"message": "User registered successfully."})
+
+@app.route("/login", methods=["POST"])
+def login():
+    users = load_users()
+    data = request.get_json()
+
+    username = data.get("username")
+    password = data.get("password")
+
+    if not username or not password:
+        abort(400, "Username and password are required.")
+
+    user = next((user for user in users["users"] if user["username"] == username), None)
+    if not user or user["password"] != password:
+        abort(401, "Invalid username or password.")
+
+    return jsonify({"message": "Login successful."})
+
 if __name__ == '__main__':
     app.run(debug=True)
 
