@@ -25,22 +25,51 @@ def get_movies():
     
     return filmovi_dict
 
+@app.route("/movies/<id>/<date>/ticket", methods=['POST'])
+def book_ticket(id,date):
+    film,filmovi_dict = get_movie(id)
+    
+    payload_data = request.json
+    seats_list = payload_data.get('seats','')
+    if not film:
+        return jsonify({"error": "Movie not found"}), 404
+    
+    if date not in film["schedule"]:
+        return jsonify({"error": "Movie is not scheduled for this date"}), 404
+    schedule_matrix = film["schedule"][date]
 
-@app.route("/movies/<id>")
-def get_single_movie(id):
+    for seat in seats_list:
+        row = seat['x']
+        col = seat['y']
+        if schedule_matrix[int(row)][int(col)] != 0:
+            return jsonify({"error": "Seat {} is already booked".format(seat)}), 409
+        else:
+            schedule_matrix[row][col] = 1
+
+        film["schedule"][date] = schedule_matrix
+    
+    # Save the updated movie data back to the file
     backend_folder = "backend"
     static_folder = "static"
     filename = "filmovi.json"
 
     current_directory = Path.cwd()
 
-    file_path =  current_directory/ backend_folder / static_folder / filename
+    file_path =  current_directory / backend_folder / static_folder / filename
 
-    with open(file_path,'r') as filmovi:
-        filmovi_dict = json.load(filmovi)
-        for film in filmovi_dict:
-            if film["id"] == int(id):
-                return jsonify(film)
+    with open(file_path, 'w') as filmovi:
+        json.dump(filmovi_dict, filmovi, indent=4)
+    
+    return jsonify({"success": "Tickets booked successfully"}), 200
+            
+
+    
+
+@app.route("/movies/<id>")
+def get_single_movie(id):
+    film = get_movie(id)
+    if film != None:
+        return jsonify(film)
 
     return jsonify(404,f"Movie with id:{id} Not found")
 
@@ -67,6 +96,20 @@ def get_program_day(day):
         
 
 
+def get_movie(id):
+    backend_folder = "backend"
+    static_folder = "static"
+    filename = "filmovi.json"
+
+    current_directory = Path.cwd()
+
+    file_path =  current_directory/ backend_folder / static_folder / filename
+
+    with open(file_path,'r') as filmovi:
+        filmovi_dict = json.load(filmovi)
+        for film in filmovi_dict:
+            if film["id"] == int(id):
+                return film, filmovi_dict
 
 if __name__ == '__main__':
     app.run(debug=True)
