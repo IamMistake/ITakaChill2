@@ -195,13 +195,19 @@ body{
 }
 
 .splide{
-    width: 80%;
+    width: 79%;
 }
 
-/*.is-active,.is-next{*/
-/*    width: 90%;*/
-/*    height: auto;*/
-/*}*/
+.splide__slide{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.splide__slide .container-img:hover{
+    filter: brightness(50%);
+}
+
 
 
 
