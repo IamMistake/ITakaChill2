@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+:root{
+    font-size: 1rem;
+
+    /*body*/
+    --body: #0E111A;
+
+    /*search-bar*/
+    --violet: #152347;
+    --grey: #5A5C61;
+
+    /*btn-color*/
+    --btn-color: #2D72FA;
+
+    /*btn color-2*/
+    --btn-color-2: #12203C
+}
+
+body{
+    background: var(--body);
+}
+
+.navBar{
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+}
+
+.nav-item{
+    margin-right: 5%;
+}
+
+.navBar .logo{
+    margin-left: 11.5%;
+}
+
+.navBar .logo img{
+    width: 6rem;
+    object-fit: contain;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+
+
+.searchBar input {
+    width: 80%;
+    height: 2.5vh;
+    border-radius: .9rem;
+    padding: .7rem 2rem .7rem 2.5rem;
+    border: 0 transparent;
+    background-color: var(--violet);
+    color: white;
+    transition: padding 0.3s ease;
+    cursor: pointer;
+}
+
+.searchBar input::placeholder{
+    padding: 1rem;
+    color: var(--grey);
+}
+
+.searchBar input:focus {
+    padding-left: 5rem;
+}
+
+.searchBar i {
+    position: relative;
+    left: 5%;
+    top: .7rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: left 0.3s ease;
+    color: var(--grey)
+}
+
+.searchBar input:focus + i{
+    left: 12rem;
+    padding-left: 5rem;
+}
+
+.lang{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    background: var(--body);
+    border: 1.5px solid var(--grey);
+    color: var(--grey);
+    padding: .4rem .7rem;
+    border-radius: .9rem;
+    cursor: pointer;
+}
+
+.btn{
+    display: flex;
+    height: 3rem;
+    color: var(--grey);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /*margin-left: 2%;*/
+}
+
+.btn-item{
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--body);
+    border: 1.5px solid var(--grey);
+    color: var(--grey);
+    padding: .6rem 1rem;
+    border-radius: .9rem;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.signIn{
+    background: var(--btn-color);
+    border: none;
+    color: white;
+    transition:  0.3s ease;
+}
+
+.signUp{
+    background: var(--violet);
+    border: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+
+.signUp:hover{
+    padding: .8rem 1.3rem;
+}
+
+.signIn:hover{
+    padding: .8rem 1.3rem;
+}
+
+.categories{
+    margin-right: 9rem;
+    margin-top: 1%;
+    color: var(--grey);
+    margin-bottom: 1rem;
+}
+
+.menu-container{
+    margin-left: 2%;
+    margin-right: 2%;
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 70vh;
+    color: white;
+    gap: 1rem;
+}
+
+.menu-item{
+    width: 13.4rem;
+    height: 3.2rem;
+    border-radius: .9rem;
+    display: flex;
+    padding-left: 1.3rem;
+    align-items: center;
+    gap: 1.3rem;
+    font-size: 1.1rem;
+    transition: padding ease 0.7s, background-color 0.7s;
+    cursor: pointer;
+}
+
+.menu-item:hover{
+    padding-bottom: 2rem;
+    background: var(--btn-color);
+    transition: .8s;
+    animation-duration: .8s;
+    box-shadow: 10px 2px 30px 0 var(--btn-color);
+}
+
+
+.menu-item.item-1{
+    background: var(--btn-color);
+    box-shadow: 10px 2px 30px 0 var(--btn-color);
+}
+
+.menu-item > p{
+    color: white;
+}
+
+.thumbnail {
+    float: left;
+    width: 67vw;
+    cursor: pointer;
+}
+
+
+.img-container{
+    width: 67vw;
+    height: 45vh;
+    /*overflow: hidden;*/
+    border-radius: 2rem;
+    transition: ease 1s;
+}
+
+.img-container img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.tags{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: absolute;
+    top: 15%;
+    left: 7%;
+    color: white;
+}
+
+.tags > .tag{
+    border-right: 1px solid white;
+    padding-right: 1rem;
+    opacity: 0;
+    transition: ease .5s;
+}
+
+.thumbnail-heading{
+    color: white;
+    font-weight: 800;
+    font-size: 3.5rem;
+    position: absolute;
+    top: 25%;
+    left: 7%;
+    opacity: 0;
+    transition: ease .5s;
+}
+
+.thumbnail-btns{
+    position: absolute;
+    top: 80%;
+    left: 7%;
+    display: flex;
+    gap: 1.5rem;
+    color: white;
+    opacity: 0;
+    transition: ease .5s;
+}
+
+.thumbnail-btns .button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .9rem 1.5rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.53);
+    backdrop-filter: blur(50%);
+    transition: ease 1s;
+
+}
+
+.thumbnail-btns .button:hover{
+    background: rgba(0, 0, 0, 0.75);
+    padding: 1rem 2rem;
+}
+
+.thumbnail-btns .button i{
+    margin-right: .5rem;
+    font-size: 1.5rem;
+}
+
+.tag:last-of-type{
+    border: none;
+}
+
+section{
+    float: left;
+    width: 67vw;
+    position: relative;
+    color: white;
+    margin-top: 1.5%;
+}
+
+.movie-item{
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.movie-item .mov{
+    width: 100vw;
+    height: 25vh;
+    overflow: hidden;
+    border-radius: .9rem;
+    background: var(--btn-color-2);
+    cursor: pointer;
+}
+
+.movie-item .mov img{
+    width: 100%;
+    height: 70%;
+    /*position: relative;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    object-fit: cover;
+    transition: .5s ease;
+}
+
+.movie-item .mov p{
+    font-size: 1.2rem;
+    padding: .5rem 0 0 1rem;
+}
+
+.movie-item .mov p:last-of-type{
+    font-size: .8rem;
+    padding-top: .3rem;
+}
+
+.thumbnail:hover .tag {
+    /* Adjust this value as needed */
+    opacity: 1;
+    transition: top 0.5s ease, opacity 0.5s ease; /* Add transition for smooth animation */
+}
+
+.thumbnail:hover .thumbnail-heading {
+    top: 29%; /* Adjust this value as needed */
+    opacity: 1;
+    transition: top 0.7s ease, opacity 0.5s ease; /* Add transition for smooth animation */
+}
+
+.thumbnail:hover .thumbnail-btns {
+    top: 65%; /* Adjust this value as needed */
+    opacity: 1;
+    transition: top 0.5s ease, opacity 0.5s ease; /* Add transition for smooth animation */
+}
+
+.thumbnail:hover .img-container{
+    filter: brightness(50%);
+}
+
+.mov:hover > img{
+    filter: brightness(60%);
+}
+

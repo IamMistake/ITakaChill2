@@ -1,0 +1,208 @@
+[
+    {
+        "id":0,
+        "title": "Echoes of Eternity",
+        "director": "Michael Anderson",
+        "length_seconds": 11760,
+        "rating": 8.1,
+        "year": 2021,
+        "genre": [
+            "Sci-Fi",
+            "Mystery",
+            "Thriller"
+        ],
+        "cena":300,
+        "schedule": ["2024-02-26","2024-02-27"],
+        "src": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781800261952/echoes-of-eternity-9781800261952_xlg.jpg"
+    },
+    {
+        "id":1,
+        "title": "The Last Voyage of the Avalon",
+        "director": "Emily Chen",
+        "length_seconds": 9600,
+        "rating": 7.6,
+        "year": 2023,
+        "genre": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "cena":300,
+        "schedule": ["2024-02-27","2024-02-28"],
+        "src": "https://w0.peakpx.com/wallpaper/408/350/HD-wallpaper-the-last-voyage-of-the-demeter-the-last-voyage-of-the-demeter-horror-movies-2023-movies.jpg"
+    },
+    {
+        "id":2,
+        "title": "Legacy of Legends",
+        "director": "David Rodriguez",
+        "length_seconds": 9000,
+        "rating": 8.2,
+        "year": 2024,
+        "genre": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+        ],
+        "cena":300,
+        "src": "https://images4.alphacoders.com/251/251714.jpg"
+    },
+    {
+        "id":3,
+        "title": "Heartstrings",
+        "director": "Natalie White",
+        "length_seconds": 8460,
+        "rating": 7.8,
+        "year": 2022,
+        "genre": [
+            "Romance",
+            "Drama"
+        ],
+        "cena":300
+    },
+    {
+        "id":4,
+        "title": "Shadows of Destiny",
+        "director": "Alex Thompson",
+        "length_seconds": 10320,
+        "rating": 8.0,
+        "year": 2023,
+        "genre": [
+            "Thriller",
+            "Mystery",
+            "Drama"
+        ],
+        "cena":300
+    },
+    {
+        "id":5,
+        "title": "Forgotten Realms",
+        "director": "Samantha Lee",
+        "length_seconds": 8880,
+        "rating": 7.7,
+        "year": 2022,
+        "genre": [
+            "Fantasy",
+            "Adventure"
+        ],
+        "cena":300
+    },
+    {
+        "id":6,
+        "title": "Whispers in the Dark",
+        "director": "Christopher Evans",
+        "length_seconds": 9360,
+        "rating": 7.9,
+        "year": 2023,
+        "genre": [
+            "Horror",
+            "Mystery",
+            "Thriller"
+        ],
+        "cena":300
+    },
+    {
+        "id":7,
+        "title": "Infinite Horizons",
+        "director": "Olivia Martinez",
+        "length_seconds": 10200,
+        "rating": 8.3,
+        "year": 2024,
+        "genre": [
+            "Sci-Fi",
+            "Adventure"
+        ],
+        "cena":300
+    },
+    {
+        "id":8,
+        "title": "The Enigma Code",
+        "director": "Daniel Brown",
+        "length_seconds": 9180,
+        "rating": 7.5,
+        "year": 2022,
+        "genre": [
+            "Drama",
+            "Mystery",
+            "Thriller"
+        ],
+        "cena":300
+    },
+    {
+        "id":9,
+        "title": "Rise of the Phoenix",
+        "director": "Isabella Garcia",
+        "length_seconds": 9540,
+        "rating": 8.0,
+        "year": 2023,
+        "genre": [
+            "Action",
+            "Adventure"
+        ],
+        "cena":300
+    },
+    {
+        "id":9,
+        "title": "Eternal Bonds",
+        "director": "William Turner",
+        "length_seconds": 8700,
+        "rating": 7.8,
+        "year": 2022,
+        "genre": [
+            "Romance",
+            "Drama"
+        ],
+        "cena":300
+    },
+    {
+        "id":10,
+        "title": "The Secret Expedition",
+        "director": "Ethan Adams",
+        "length_seconds": 9960,
+        "rating": 7.6,
+        "year": 2023,
+        "genre": [
+            "Adventure",
+            "Mystery"
+        ],
+        "cena":300
+    },
+    {
+        "id":11,
+        "title": "Chasing Dreams",
+        "director": "Sophie Parker",
+        "length_seconds": 8880,
+        "rating": 7.9,
+        "year": 2022,
+        "genre": [
+            "Drama",
+            "Sport"
+        ],
+        "cena":300
+    },
+    {
+        "id":12,
+        "title": "Beyond the Stars",
+        "director": "Jacob Thompson",
+        "length_seconds": 9300,
+        "rating": 8.2,
+        "year": 2024,
+        "genre": [
+            "Sci-Fi",
+            "Adventure",
+            "Drama"
+        ],
+        "cena":300
+    },
+    {
+        "id":13,
+        "title": "The Guardian's Oath",
+        "director": "Mia Clark",
+        "length_seconds": 9780,
+        "rating": 8.1,
+        "year": 2023,
+        "genre": [
+            "Fantasy",
+            "Adventure"
+        ],
+        "cena":300
+    }
+]
