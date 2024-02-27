@@ -34,15 +34,24 @@ def get_single_movie(id):
 
     current_directory = Path.cwd()
 
-    file_path =  current_directory/ backend_folder / static_folder / filename
+    file_path =  current_directory / static_folder / filename
+
+    ovajOvde = {}
 
     with open(file_path,'r') as filmovi:
         filmovi_dict = json.load(filmovi)
         for film in filmovi_dict:
             if film["id"] == int(id):
-                return jsonify(film)
+                ovajOvde.update(film)
 
-    return jsonify(404,f"Movie with id:{id} Not found")
+    # Create a response object with the movie data
+    response = jsonify(ovajOvde)
+
+    # Set the Access-Control-Allow-Origin header to allow requests from all origins
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    # Return the response
+    return response
 
 @app.route("/program/<day>")
 def get_program_day(day):
@@ -61,9 +70,11 @@ def get_program_day(day):
             schedule = film.get("schedule",{})
 
             if day in schedule:
-                result_json.append(film)    
+                result_json.append(film)
 
-    return jsonify(result_json)    
+
+
+    return jsonify(result_json)
         
 
 
