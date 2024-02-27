@@ -2,7 +2,9 @@ from pathlib import Path
 from flask import Flask, request, jsonify , abort
 from flask_cors import CORS
 from datetime import datetime, timedelta
+import hashlib
 import json
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -38,6 +40,7 @@ def book_ticket(id,date):
         return jsonify({"error": "Movie is not scheduled for this date"}), 404
     schedule_matrix = film["schedule"][date]
 
+    booked_seats_hashes = {} 
     for seat in seats_list:
         row = seat['x']
         col = seat['y']
@@ -46,21 +49,32 @@ def book_ticket(id,date):
         else:
             schedule_matrix[row][col] = 1
 
+            seat_hash = hashlib.sha256(str.encode(f"{id}-{date}-{row}-{col}")).hexdigest()
+            booked_seats_hashes[f"{row}-{col}"] = seat_hash
         film["schedule"][date] = schedule_matrix
     
     # Save the updated movie data back to the file
     backend_folder = "backend"
     static_folder = "static"
     filename = "filmovi.json"
+    tickets_filename = "tickets.json"
 
     current_directory = Path.cwd()
 
     file_path =  current_directory / backend_folder / static_folder / filename
+    tickets_file_path = current_directory / backend_folder / static_folder / tickets_filename
+    with open(tickets_file_path, 'r') as tickets_file:
+        tickets_data = json.load(tickets_file)
 
-    with open(file_path, 'w') as filmovi:
-        json.dump(filmovi_dict, filmovi, indent=4)
-    
-    return jsonify({"success": "Tickets booked successfully"}), 200
+    # Update the loaded data with the new seat hashes
+    for seat_hash in booked_seats_hashes.values():
+        tickets_data.append({seat_hash:{} })
+
+    # Write the updated data back to tickets.json
+    with open(tickets_file_path, 'w') as tickets_file:
+        json.dump(tickets_data, tickets_file, indent=4)
+
+    return jsonify({"success": "Tickets booked successfully","booked_seats_hashes":booked_seats_hashes}), 200
             
 
     
@@ -110,7 +124,6 @@ def get_program_day(day):
 
             if day in schedule:
                 result_json.append(film)
-
 
 
     return jsonify(result_json)
