@@ -29,8 +29,15 @@ fetch("../backend/static/filmovi.json")
                 //create stars
                 let star = document.createElement("i")
                 star.setAttribute("class","fa-solid fa-star")
+                star.setAttribute("style","color: #FFD43B")
                 rate.append(star)
                 // console.log(rate)
+            }
+            for (i=0;i<5-rate_stars;i++){
+                let starr = document.createElement("i")
+                starr.setAttribute("class","fa-solid fa-star")
+                starr.setAttribute("style","color: #949494")
+                rate.append(starr)
             }
 
             //appending all items to li_item
