@@ -1,80 +1,142 @@
-let movie = localStorage.getItem('movie')
-movie = JSON.parse(movie)
-let id = movie['id']
-let cena = movie['price']
-console.log(movie)
+import {Movie} from "./cMovie.js";
 
-let banner = document.getElementById("banner");
-let sali = document.getElementById("sali");
-let chairsElem = document.getElementById("place")
+
+const app = new App();
+const ui = new UI();
+
+class UI
+{
+    constructor()
+    {
+        this.banner = document.getElementById("banner");
+        this.sali = document.getElementById("sali");
+        this.chairsElem = document.getElementById("place")
+        this.movieInfoDiv = document.getElementById('movieInfo')
+        this.h2 = this.movieInfoDiv.getElementsByTagName('h2')[0];
+        this.director = this.movieInfoDiv.getElementsByTagName('h3')[0];
+        this.ul = this.movieInfoDiv.getElementsByTagName('ul')[0];
+    }
+}
+
+class App
+{
+    movie;
+
+    constructor()
+    {
+        this.movie = null
+    }
+
+    async setupMovieInfo()
+    {
+        const movieId = Movie.getInstanceFromLocalStorage().id;
+        this.movie = await fetchData(`http://127.0.0.1:5000/movies/${movieId}`)
+
+        ui.h2.innerText = `${this.movie.title} + (${this.movie.rating})`;
+        ui.director.innerText = `"By ${this.movie.director} in  ${this.movie.year}`;
+        ui.ul.innerHTML = ""
+        this.movie.genres.forEach(genre =>
+        {
+            ui.ul.innerHTML += `<li>${genre}</li>`
+        })
+        ui.banner.style.backgroundImage = `url(${this.movie.src})`;
+        this.setupChairs(this.getFirstDate());
+    }
+
+    openSala(x)
+    {
+        ui.sali.innerHTML = `<div class="borderSala"></div>`;
+        const dates = x.dates;
+        const times = x.times;
+        for (let i = 1; i <= dates.length; i++)
+        {
+            sali.innerHTML += `<div onclick="changeDate(this)" id="${"datum" + (i - 1)}" class="sala">
+        ${dates[i - 1]}
+        <p class="vreme" id="${"vreme" + i}">${times[i - 1]} - ${time(times[i - 1])}</p>
+    </div>
+    <div class="borderSala"></div>`
+        }
+    }
+
+
+
+    getDates()
+    {
+        return this.movie.schedule.keys;
+    }
+
+    setupChairs(charMatrix)
+    {
+        ui.chairsElem.innerText = ""
+        for (let i = 0; i < charMatrix.length; i++)
+        {
+            const row = charMatrix[i];
+            for (let j = 0; j < row.length; j++)
+            {
+                const seat = row[j]
+                if (seat === 1)
+                {
+                    let div = `<div data-row="${i}" data-seat="${j}" class="zafatenaChair"></div>`
+                    charMatrix.innerHTML += div;
+                }
+                else
+                {
+                    let div = `<div onclick="zafati(this)" data-row="${i}" data-seat="${j}" class="nezafatenaChair"></div>`
+                    ui.chairsElem.innerHTML += div;
+                }
+            }
+            ui.chairsElem.innerHTML += `<div></div>`;
+        }
+    }
+}
+
 
 let datumSelected = 0;
 let costBr = 0;
 
 doStuff();
 
-async function fetchData(pth) {
-    try {
+async function fetchData(pth)
+{
+    try
+    {
         let response = await fetch(pth);
         return response.json();
-    } catch (e) {
-        console.log(e);
+    } catch (e)
+    {
+        console.error("Error: ", e);
     }
 }
 
-async function doStuff() {
-    setupMovieInfo()
+async function doStuff()
+{
+    await app.setupMovieInfo()
 
-    const saliData = await fetchData("../backend/static/sali.json");
+    // const saliData = await fetchData("../backend/static/sali.json");
     const m2 = await fetchData("http://127.0.0.1:5000/movies/0");
     console.log("M2", m2)
 
-    saliData.forEach(x => {
-        if(x.id === id) {
+
+    saliData.forEach(x =>
+    {
+        if (x.id === id)
+        {
             openSala(x);
-            thumbnail(x);
-            chairs(x)
+            setupChairs(x)
         }
     })
 }
 
-function setupMovieInfo() {
-    let movieInfoDiv = document.getElementById('movieInfo')
 
-    let h2 = movieInfoDiv.getElementsByTagName('h2')[0];
-    h2.innerText = movie['title'] + ` (${movie['rating']})`;
-
-    let director = movieInfoDiv.getElementsByTagName('h3')[0];
-    director.innerText = "By " + movie['director'] + " in " + movie['year'];
-
-    let ul = movieInfoDiv.getElementsByTagName('ul')[0];
-    ul.innerHTML = ""
-    for (let i = 0; i < movie['genres'].length; i++) {
-        ul.innerHTML += `<li>${movie['genres'][i]}</li>`
-    }
-}
-
-function openSala(x) {
-    // const n = x.saliNumber;
-    sali.innerHTML = `<div class="borderSala"></div>`;
-    const dates = x.dates;
-    const times = x.times;
-    for (let i = 1; i <= dates.length; i++) {
-        sali.innerHTML += `<div onclick="changeDate(this)" id="${"datum" + (i - 1)}" class="sala">
-        ${dates[i - 1]}
-        <p class="vreme" id="${"vreme" + i}">${times[i - 1]} - ${time(times[i - 1])}</p>
-    </div>
-    <div class="borderSala"></div>`
-    }
-}
-
-async function changeDate(ova) {
+async function changeDate(ova)
+{
     let date = ova.id;
     datumSelected = parseInt(date.charAt(5));
-     await doStuff();
+    await doStuff();
 }
 
-function time(time) {
+function time(time)
+{
     const h = parseInt(time.split(":")[0])
     const m = parseInt(time.split(":")[1])
     let tmpTime = new Date();
@@ -83,31 +145,9 @@ function time(time) {
     return tmpTime.toISOString().substr(11, 5);
 }
 
-function thumbnail(x) {
-    let bgUrl = x.thumbnail;
-    banner.style.backgroundImage = `url(${bgUrl})`;
-}
 
-function chairs(x) {
-    costBr = 0;
-    chairsElem.innerText = ""
-    let matrix = x.matrix[datumSelected];   // 0 E KOJA SALA CE BIDIT
-    for (let i = 0; i < 8; i++) {
-        for (let j = 0; j < 8; j++) {
-            if(matrix[i][j] === 1) {
-                let div = `<div id="${"" + i + j}" class="zafatenaChair"></div>`
-                chairsElem.innerHTML += div;
-            } else {
-                let div = `<div onclick="zafati(this)" id="${"" + i + j}" class="nezafatenaChair"></div>`
-                chairsElem.innerHTML += div;
-            }
-        }
-        chairsElem.innerHTML += `<div></div>`;
-    }
-    presmetajCost();
-}
-
-async function zafati(chair) {
+async function zafati(chair)
+{
     costBr++;
     let chairId = chair.id;
     let x = parseInt(chairId.toString().charAt(0));
@@ -121,7 +161,8 @@ async function zafati(chair) {
     presmetajCost();
 }
 
-function presmetajCost() {
+function presmetajCost()
+{
     let pari = document.getElementById('pari')
     let howmany = document.getElementById('howMany')
     let vkupno = document.getElementById('vkupno')
@@ -132,7 +173,8 @@ function presmetajCost() {
     vkupno.innerText = costBr * cena;
 }
 
-function plati(btn) {
+function plati(btn)
+{
     //SEND TO BACKEND TO PAY
     alert("NOT DONE YET HEHE :)" + "\t" +
         "(ako sakas drug film pojdi vo saliFunc.js i na prvata linija smeni id vo nekoe dr)")

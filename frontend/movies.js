@@ -1,3 +1,4 @@
+import {Movie} from "./cMovie.js";
 
 async function fetchData(pth)
 {
