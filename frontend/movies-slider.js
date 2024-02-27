@@ -18,6 +18,12 @@ fetch("../backend/static/filmovi.json")
             mov_name.setAttribute("class","container-movie-heading")
             mov_name.textContent = el.title
 
+            //collection buttons
+            let btn1 = document.createElement("div")
+            btn1.textContent = "Buy a ticket!"
+            btn1.setAttribute("class","btn-1")
+
+
             //creating stars rating
             let rate = document.createElement("div")
             rate.setAttribute("class","container-movie-rating")
@@ -52,7 +58,7 @@ fetch("../backend/static/filmovi.json")
             arrows:false,
             nav:false,
             pagination:false,
-            // autoplay: true,
+            autoplay: true,
         } );
 
         splide.mount();
