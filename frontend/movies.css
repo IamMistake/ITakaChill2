@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+
+}
+
+:root{
+    font-size: 1rem;
+
+    /*body*/
+    --body: #0E111A;
+
+    /*search-bar*/
+    --violet: #152347;
+    --grey: #5A5C61;
+
+    /*btn-color*/
+    --btn-color: #2D72FA;
+
+    /*btn color-2*/
+    --btn-color-2: #12203C
+}
+
+body{
+    background: var(--body);
+}
+
+.navBar{
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+}
+
+.nav-item{
+    margin-right: 5%;
+}
+
+.navBar .logo{
+    margin-left: 11.5%;
+}
+
+.navBar .logo img{
+    width: 6rem;
+    object-fit: contain;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+
+
+.searchBar input {
+    width: 80%;
+    height: 2.5vh;
+    border-radius: .9rem;
+    padding: .7rem 2rem .7rem 2.5rem;
+    border: 0 transparent;
+    background-color: var(--violet);
+    color: white;
+    transition: padding 0.3s ease;
+    cursor: pointer;
+}
+
+.searchBar input::placeholder{
+    padding: 1rem;
+    color: var(--grey);
+}
+
+.searchBar input:focus {
+    padding-left: 5rem;
+}
+
+.searchBar i {
+    position: relative;
+    left: 5%;
+    top: .7rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: left 0.3s ease;
+    color: var(--grey)
+}
+
+.searchBar input:focus + i{
+    left: 12rem;
+    padding-left: 5rem;
+}
+
+.lang{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    background: var(--body);
+    border: 1.5px solid var(--grey);
+    color: var(--grey);
+    padding: .4rem .7rem;
+    border-radius: .9rem;
+    cursor: pointer;
+}
+
+.btn{
+    display: flex;
+    height: 3rem;
+    color: var(--grey);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /*margin-left: 2%;*/
+}
+
+.btn-item{
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--body);
+    border: 1.5px solid var(--grey);
+    color: var(--grey);
+    padding: .6rem 1rem;
+    border-radius: .9rem;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.signIn{
+    background: var(--btn-color);
+    border: none;
+    color: white;
+    transition:  0.3s ease;
+}
+
+.signUp{
+    background: var(--violet);
+    border: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+
+.signUp:hover{
+    padding: .8rem 1.3rem;
+}
+
+.signIn:hover{
+    padding: .8rem 1.3rem;
+}
+
+.heading{
+    margin-left: 12%;
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+}
+
+.heading p{
+    font-size: .9rem;
+    padding-top: 1rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12%;
+}
+
+.container .container-heading{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.container-img{
+    width: 70%;
+    height: 40%;
+    object-fit: cover;
+}
+
+.container-movie-rating{
+    display: flex;
+    gap: .3rem;
+}
+
+.container-movie-heading,.container-movie-rating{
+    width: 50%;
+    color: white;
+}
+
+.splide{
+    width: 80%;
+}
+
+/*.is-active,.is-next{*/
+/*    width: 90%;*/
+/*    height: auto;*/
+/*}*/
+
+
+
