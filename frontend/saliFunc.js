@@ -26,6 +26,9 @@ async function doStuff() {
     setupMovieInfo()
 
     const saliData = await fetchData("../backend/static/sali.json");
+    const m2 = await fetchData("http://127.0.0.1:5000/movies/0");
+    console.log("M2", m2)
+
     saliData.forEach(x => {
         if(x.id === id) {
             openSala(x);
