@@ -17,7 +17,7 @@ def get_movies():
     current_directory = Path.cwd()
 
     # Navigate to the file using Path objects
-    file_path =  current_directory / static_folder / filename
+    file_path =  current_directory /backend_folder / static_folder / filename
     res = {}
     with open(file_path,'r') as filmovi:
         filmovi_dict = json.load(filmovi)
@@ -133,11 +133,11 @@ def get_movie(id):
                 return film, filmovi_dict
 
 def load_users():
-    with open("users.json", "r") as file:
+    with open("backend\\static\\users.json", "r") as file:
         return json.load(file)
 
 def save_users(users):
-    with open("users.json", "w") as file:
+    with open("backend\\static\\users.json", "w") as file:
         json.dump(users, file)
 
 @app.route("/register", methods=["POST"])
@@ -170,13 +170,11 @@ def login():
     if not username or not password:
         abort(400, "Username and password are required.")
 
-    user = next((user for user in users["users"] if user["username"] == username), None)
-    if not user or user["password"] != password:
-        abort(401, "Invalid username or password.")
+    for user in users["users"]:
+        if user["username"] == username and user["password"] == password:
+            return jsonify({"message": "Login successful."})
 
-    return jsonify({"message": "Login successful."})
+    abort(401, "Invalid username or password.")
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-    #bisera
