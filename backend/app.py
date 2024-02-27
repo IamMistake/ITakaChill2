@@ -55,16 +55,6 @@ def book_ticket(id,date):
 
     current_directory = Path.cwd()
 
-    file_path =  current_directory / static_folder / filename
-
-    ovajOvde = {}
-
-    with open(file_path,'r') as filmovi:
-        filmovi_dict = json.load(filmovi)
-        for film in filmovi_dict:
-            if film["id"] == int(id):
-                ovajOvde.update(film)
-
     file_path =  current_directory / backend_folder / static_folder / filename
 
     with open(file_path, 'w') as filmovi:
