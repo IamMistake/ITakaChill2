@@ -1,6 +1,6 @@
 [
     {
-        "id":0,
+        "id": 0,
         "title": "Echoes of Eternity",
         "director": "Michael Anderson",
         "length_seconds": 11760,
@@ -11,12 +11,177 @@
             "Mystery",
             "Thriller"
         ],
-        "cena":300,
-        "schedule": ["2024-02-26","2024-02-27"],
+        "cena": 300,
+        "schedule": {
+            "2024-02-28": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "2024-02-27": [
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
         "src": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781800261952/echoes-of-eternity-9781800261952_xlg.jpg"
     },
     {
-        "id":1,
+        "id": 1,
         "title": "The Last Voyage of the Avalon",
         "director": "Emily Chen",
         "length_seconds": 9600,
@@ -26,12 +191,15 @@
             "Adventure",
             "Fantasy"
         ],
-        "cena":300,
-        "schedule": ["2024-02-27","2024-02-28"],
+        "cena": 300,
+        "schedule": [
+            "2024-02-27",
+            "2024-02-28"
+        ],
         "src": "https://w0.peakpx.com/wallpaper/408/350/HD-wallpaper-the-last-voyage-of-the-demeter-the-last-voyage-of-the-demeter-horror-movies-2023-movies.jpg"
     },
     {
-        "id":2,
+        "id": 2,
         "title": "Legacy of Legends",
         "director": "David Rodriguez",
         "length_seconds": 9000,
@@ -42,11 +210,11 @@
             "Adventure",
             "Fantasy"
         ],
-        "cena":300,
+        "cena": 300,
         "src": "https://images4.alphacoders.com/251/251714.jpg"
     },
     {
-        "id":3,
+        "id": 3,
         "title": "Heartstrings",
         "director": "Natalie White",
         "length_seconds": 8460,
@@ -56,10 +224,10 @@
             "Romance",
             "Drama"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":4,
+        "id": 4,
         "title": "Shadows of Destiny",
         "director": "Alex Thompson",
         "length_seconds": 10320,
@@ -70,10 +238,10 @@
             "Mystery",
             "Drama"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":5,
+        "id": 5,
         "title": "Forgotten Realms",
         "director": "Samantha Lee",
         "length_seconds": 8880,
@@ -83,10 +251,10 @@
             "Fantasy",
             "Adventure"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":6,
+        "id": 6,
         "title": "Whispers in the Dark",
         "director": "Christopher Evans",
         "length_seconds": 9360,
@@ -97,10 +265,10 @@
             "Mystery",
             "Thriller"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":7,
+        "id": 7,
         "title": "Infinite Horizons",
         "director": "Olivia Martinez",
         "length_seconds": 10200,
@@ -110,10 +278,10 @@
             "Sci-Fi",
             "Adventure"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":8,
+        "id": 8,
         "title": "The Enigma Code",
         "director": "Daniel Brown",
         "length_seconds": 9180,
@@ -124,10 +292,10 @@
             "Mystery",
             "Thriller"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":9,
+        "id": 9,
         "title": "Rise of the Phoenix",
         "director": "Isabella Garcia",
         "length_seconds": 9540,
@@ -137,10 +305,10 @@
             "Action",
             "Adventure"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":9,
+        "id": 9,
         "title": "Eternal Bonds",
         "director": "William Turner",
         "length_seconds": 8700,
@@ -150,10 +318,10 @@
             "Romance",
             "Drama"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":10,
+        "id": 10,
         "title": "The Secret Expedition",
         "director": "Ethan Adams",
         "length_seconds": 9960,
@@ -163,10 +331,10 @@
             "Adventure",
             "Mystery"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":11,
+        "id": 11,
         "title": "Chasing Dreams",
         "director": "Sophie Parker",
         "length_seconds": 8880,
@@ -176,10 +344,10 @@
             "Drama",
             "Sport"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":12,
+        "id": 12,
         "title": "Beyond the Stars",
         "director": "Jacob Thompson",
         "length_seconds": 9300,
@@ -190,10 +358,10 @@
             "Adventure",
             "Drama"
         ],
-        "cena":300
+        "cena": 300
     },
     {
-        "id":13,
+        "id": 13,
         "title": "The Guardian's Oath",
         "director": "Mia Clark",
         "length_seconds": 9780,
@@ -203,6 +371,6 @@
             "Fantasy",
             "Adventure"
         ],
-        "cena":300
+        "cena": 300
     }
 ]
